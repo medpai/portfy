@@ -82,16 +82,16 @@ export const Skill_data = [
   
   export const Socials = [
     {
-      name: "Discord",
+      name: "Email",
       src: "/instagram.svg",
     },
     {
-      name: "Facebook",
-      src: "/facebook.svg",
+      name: "GitHub",
+      src: "/github-142-svgrepo-com.svg",
     },
     {
-      name: "Instagram",
-      src: "/discord.svg",
+      name: "LinkedIn",
+      src: "/linkedin.svg",
     },
   ];
   
@@ -244,14 +244,27 @@ export const Skill_data = [
   
   export const Other_skill = [
     {
-      skill_name: "Go",
-      Image: "/go.png",
-      width: 60,
-      height: 60,
+      skill_name: "C#",
+      Image: "/c-sharp.png",
+      width: 70,
+      height: 70,
+    },
+    {
+      skill_name: "Kotlin",
+      Image: "/kotlin.png",
+      width: 70,
+      height: 70,
+    },
+    {
+      skill_name: "Git",
+      Image: "/gitwhite.png",
+      width: 70,
+      height: 70,
+    },
+    {
+      skill_name: "vue js",
+      Image: "/vueJs.png",
+      width: 70,
+      height: 70,
     },
   ];
-  
-  
-  
-  
-  
