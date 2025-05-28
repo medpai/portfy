@@ -63,7 +63,7 @@ const ContactPage = () => {
                     </div>
                   </div>
                   <h2 className="text-2xl font-semibold">Message sent!</h2>
-                  <p className="text-gray-400">Thank you for reaching out. I'll get back to you soon.</p>
+                  <p className="text-gray-400">Thank you for reaching out. I&apos;ll get back to you soon.</p>
                   <button
                     onClick={() => setSubmitted(false)}
                     className="mt-4 py-2 px-6 rounded-full bg-white text-[#030014] font-medium hover:bg-opacity-90 transition-all"
