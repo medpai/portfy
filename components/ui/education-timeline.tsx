@@ -52,17 +52,24 @@ export default function EducationTimeline() {
             Completed a DESS (Diplôme d&apos;Études Supérieures Spécialisées) in Computer Science at Ibn Tofail University.
             Focused on advanced computing concepts, software engineering, and information systems.
           </p>
-          <div className="grid grid-cols-2 gap-4">
-            <div className="h-20 w-full rounded-lg bg-gradient-to-r from-purple-900/30 to-blue-900/30 p-4 flex items-center justify-center shadow-[0_0_24px_rgba(124,_58,_237,_0.15)] md:h-44 lg:h-60">
-              <div className="text-center">
-                <h3 className="text-purple-300 text-sm md:text-lg font-medium">Ibn Tofail University</h3>
-                <p className="text-xs md:text-sm text-neutral-400 mt-2">Kenitra, Morocco</p>
-              </div>
-            </div>
-            <div className="h-20 w-full rounded-lg bg-gradient-to-r from-blue-900/30 to-cyan-900/30 p-4 flex items-center justify-center shadow-[0_0_24px_rgba(124,_58,_237,_0.15)] md:h-44 lg:h-60">
-              <div className="text-center">
-                <h3 className="text-blue-300 text-sm md:text-lg font-medium">Computer Science</h3>
-                <p className="text-xs md:text-sm text-neutral-400 mt-2">Advanced Software Engineering</p>
+          <div className="rounded-lg overflow-hidden shadow-[0_0_30px_rgba(124,_58,_237,_0.25)] border border-purple-500/20 hover:shadow-[0_0_40px_rgba(124,_58,_237,_0.35)] transition-all duration-300">
+            <div className="relative w-full h-60 md:h-80 lg:h-96">
+              <Image 
+                src="/uit.jpg" 
+                alt="Ibn Tofail University Campus" 
+                fill
+                className="object-cover object-center hover:scale-105 transition-transform duration-700"
+                priority
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent"></div>
+              <div className="absolute bottom-0 left-0 right-0 p-4 md:p-6">
+                <h3 className="text-white text-base md:text-xl font-medium">Ibn Tofail University</h3>
+                <p className="text-sm text-gray-300 mt-1">Kenitra, Morocco</p>
+                <div className="flex flex-wrap gap-2 mt-3">
+                  <span className="bg-purple-500/30 text-purple-200 text-xs px-2 py-1 rounded">Computer Science</span>
+                  <span className="bg-blue-500/30 text-blue-200 text-xs px-2 py-1 rounded">Software Engineering</span>
+                  <span className="bg-cyan-500/30 text-cyan-200 text-xs px-2 py-1 rounded">Information Systems</span>
+                </div>
               </div>
             </div>
           </div>
