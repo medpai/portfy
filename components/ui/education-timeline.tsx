@@ -55,7 +55,7 @@ export default function EducationTimeline() {
           <div className="rounded-lg overflow-hidden shadow-[0_0_30px_rgba(124,_58,_237,_0.25)] border border-purple-500/20 hover:shadow-[0_0_40px_rgba(124,_58,_237,_0.35)] transition-all duration-300">
             <div className="relative w-full h-60 md:h-80 lg:h-96">
               <Image 
-                src="/uit.jpg" 
+                src="/uni.jpg" 
                 alt="Ibn Tofail University Campus" 
                 fill
                 sizes="(max-width: 768px) 100vw, 50vw"
