@@ -42,27 +42,27 @@ export default function EducationTimeline() {
       ),
     },
     {
-      title: "Prior Education",
+      title: "2021-2023",
       content: (
         <div>
           <p className="mb-4 text-xs font-normal text-neutral-300 md:text-sm dark:text-neutral-300">
-            <span className="text-lg font-semibold text-purple-400">IT Foundation</span>
+            <span className="text-lg font-semibold text-purple-400">DESS in Computer Science</span>
           </p>
           <p className="mb-8 text-xs font-normal text-neutral-300 md:text-sm dark:text-neutral-300">
-            Built a strong foundation in IT principles and computer science fundamentals.
-            Developed problem-solving skills and technical aptitude that support my current professional growth.
+            Completed a DESS (Diplôme d&apos;Études Supérieures Spécialisées) in Computer Science at Ibn Tofail University.
+            Focused on advanced computing concepts, software engineering, and information systems.
           </p>
           <div className="grid grid-cols-2 gap-4">
             <div className="h-20 w-full rounded-lg bg-gradient-to-r from-purple-900/30 to-blue-900/30 p-4 flex items-center justify-center shadow-[0_0_24px_rgba(124,_58,_237,_0.15)] md:h-44 lg:h-60">
               <div className="text-center">
-                <h3 className="text-purple-300 text-sm md:text-lg font-medium">Computer Science</h3>
-                <p className="text-xs md:text-sm text-neutral-400 mt-2">Algorithms, Data Structures</p>
+                <h3 className="text-purple-300 text-sm md:text-lg font-medium">Ibn Tofail University</h3>
+                <p className="text-xs md:text-sm text-neutral-400 mt-2">Kenitra, Morocco</p>
               </div>
             </div>
             <div className="h-20 w-full rounded-lg bg-gradient-to-r from-blue-900/30 to-cyan-900/30 p-4 flex items-center justify-center shadow-[0_0_24px_rgba(124,_58,_237,_0.15)] md:h-44 lg:h-60">
               <div className="text-center">
-                <h3 className="text-blue-300 text-sm md:text-lg font-medium">System Administration</h3>
-                <p className="text-xs md:text-sm text-neutral-400 mt-2">Networks, Operating Systems</p>
+                <h3 className="text-blue-300 text-sm md:text-lg font-medium">Computer Science</h3>
+                <p className="text-xs md:text-sm text-neutral-400 mt-2">Advanced Software Engineering</p>
               </div>
             </div>
           </div>
