@@ -23,7 +23,7 @@ export default function EducationTimeline() {
                 alt="La Cité College Campus" 
                 fill
                 className="object-cover object-center hover:scale-105 transition-transform duration-700"
-                priority
+                unoptimized
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent"></div>
               <div className="absolute bottom-0 left-0 right-0 p-4 md:p-6">
@@ -58,8 +58,9 @@ export default function EducationTimeline() {
                 src="/uit.jpg" 
                 alt="Ibn Tofail University Campus" 
                 fill
+                sizes="(max-width: 768px) 100vw, 50vw"
                 className="object-cover object-center hover:scale-105 transition-transform duration-700"
-                priority
+                unoptimized
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent"></div>
               <div className="absolute bottom-0 left-0 right-0 p-4 md:p-6">
