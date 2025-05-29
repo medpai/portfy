@@ -1,26 +1,50 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import { motion } from "framer-motion";
 import { slideInFromLeft, slideInFromRight, slideInFromTop } from "@/utils/motion";
 import dynamic from "next/dynamic";
 import { useForm } from "react-hook-form";
 import { EnvelopeIcon } from "@heroicons/react/24/outline";
 import Image from "next/image";
+import emailjs from '@emailjs/browser';
 
 // Dynamically import StarBackground to avoid SSR issues
 const StarBackground = dynamic(() => import("@/components/main/StarBackground"), {
   ssr: false,
 });
 
-type FormData = { email: string; message: string; };
+type FormData = { email: string; message: string; name: string; };
 
 const ContactPage = () => {
-  const { register, handleSubmit: rhfSubmit, formState: { errors } } = useForm<FormData>();
+  const { register, handleSubmit: rhfSubmit, formState: { errors }, reset } = useForm<FormData>();
   const [submitted, setSubmitted] = useState(false);
-  const onSubmit = (data: FormData) => {
-    console.log("Form submitted:", data);
-    setSubmitted(true);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+  const formRef = useRef<HTMLFormElement>(null);
+
+  const onSubmit = async (data: FormData) => {
+    setLoading(true);
+    setError(null);
+    
+    try {
+      
+     
+      const serviceId = 'service_46us998'; 
+      const templateId = 'template_q6t691d'; 
+      const publicKey = 'SYGNyUEc-xBzZzx7W'; 
+      
+      await emailjs.sendForm(serviceId, templateId, formRef.current!, publicKey);
+      
+      console.log("Email sent successfully");
+      setSubmitted(true);
+      reset();
+    } catch (err) {
+      console.error("Failed to send email:", err);
+      setError("Failed to send message. Please try again later.");
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -72,36 +96,69 @@ const ContactPage = () => {
                   </button>
                 </div>
               ) : (
-                <form onSubmit={rhfSubmit(onSubmit)} className="space-y-6">
+                <form ref={formRef} onSubmit={rhfSubmit(onSubmit)} className="space-y-6">
                   <div className="space-y-1">
                     <div className="relative">
                       <EnvelopeIcon className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400" />
                       <input
                         id="email"
+                        
                         type="email"
                         {...register("email", { required: "Email is required" })}
-                        className="w-full py-3.5 px-10 rounded-full bg-white/5 border border-white/10 text-white focus:outline-none focus:border-white/30 transition-all"
-                        placeholder="Email"
+                        className="w-full py-3 pl-10 pr-3 bg-black/20 text-white rounded-lg border border-gray-600 focus:ring-1 focus:ring-purple-500 focus:border-purple-500 placeholder-gray-500 outline-none"
+                        placeholder="Your email"
                       />
                     </div>
                     {errors.email && <p className="text-red-400 text-sm mt-1">{errors.email.message}</p>}
                   </div>
                   
                   <div className="space-y-1">
+                    <div className="relative">
+                      <input
+                        id="name"
+                        
+                        type="text"
+                        {...register("name", { required: "Name is required" })}
+                        className="w-full py-3 pl-3 pr-3 bg-black/20 text-white rounded-lg border border-gray-600 focus:ring-1 focus:ring-purple-500 focus:border-purple-500 placeholder-gray-500 outline-none"
+                        placeholder="Your name"
+                      />
+                    </div>
+                    {errors.name && <p className="text-red-500 text-xs">{errors.name.message}</p>}
+                  </div>
+                  
+                  <div className="space-y-1">
                     <textarea
                       id="message"
+                      
                       {...register("message", { required: "Message is required" })}
-                      className="w-full py-3.5 px-5 rounded-2xl bg-white/5 border border-white/10 text-white focus:outline-none focus:border-white/30 transition-all min-h-[120px]"
+                      className="w-full py-3 px-3 bg-black/20 text-white rounded-lg border border-gray-600 focus:ring-1 focus:ring-purple-500 focus:border-purple-500 placeholder-gray-500 outline-none min-h-[120px]"
                       placeholder="Your message"
                     />
                     {errors.message && <p className="text-red-400 text-sm mt-1">{errors.message.message}</p>}
                   </div>
                   
+                  {error && (
+                    <div className="text-red-500 text-sm p-2 bg-red-500/10 border border-red-500/20 rounded-lg">
+                      {error}
+                    </div>
+                  )}
+                  
                   <button
                     type="submit"
-                    className="w-full py-3.5 rounded-full bg-white text-[#030014] font-medium hover:bg-opacity-90 transition-all"
+                    disabled={loading}
+                    className="w-full py-3 px-4 rounded-lg bg-purple-600 hover:bg-purple-700 text-white font-medium transition-colors disabled:opacity-70 disabled:cursor-not-allowed flex items-center justify-center"
                   >
-                    Send Message
+                    {loading ? (
+                      <>
+                        <svg className="animate-spin -ml-1 mr-2 h-4 w-4 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                          <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                          <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                        </svg>
+                        Sending...
+                      </>
+                    ) : (
+                      'Send Message'
+                    )}
                   </button>
                   
                   <div className="flex flex-col space-y-4 mt-8">
