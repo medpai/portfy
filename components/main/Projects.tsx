@@ -19,13 +19,13 @@ const Projects = () => {
       <div className="h-full w-full flex flex-col md:flex-row gap-10 px-10">
         <ProjectCard
           src="/octupos.webp"
-          title="Chazer"
-          description="An AI-powered browser extension that can read and analyze the content of any web page, even if it's protected, and turn it into your personal knowledge assistant."
+          title="AI Interviewer"
+          description="An AI-powered Interviewer that can read and analyze the content of any web page, even if it's protected, and turn it into your personal knowledge assistant."
         />
         <ProjectCard
           src="/rizzAI.png"
-          title="Space Portfolio"
-          description="A modern, interactive portfolio website built with Next.js and Three.js, featuring animations and 3D elements in a space-themed environment."
+          title="rizz AI"
+          description="AN AI-powered chatbot that can answer questions and provide information on a wide range of topics."
         />
         <ProjectCard
           src="/CardImage.png"
